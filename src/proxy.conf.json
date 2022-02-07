@@ -1,0 +1,8 @@
+{
+  "/form": {
+    "target": "http://localhost:4021",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel":"debug"
+  }
+}

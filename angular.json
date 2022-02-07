@@ -75,7 +75,8 @@
               "browserTarget": "formConfig:build:production"
             },
             "development": {
-              "browserTarget": "formConfig:build:development"
+              "browserTarget": "formConfig:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
