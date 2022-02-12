@@ -1,10 +1,11 @@
 import {FormlyFieldConfig, FormlyTemplateOptions} from "@ngx-formly/core";
+import {toLowerCase, toStartCase} from "../../helpers/utils";
 
 export class Element {
   public static Element(
     key: string,
-    label?: string,
     required = false,
+    label?: string,
     type = 'text',
     templateOptions?: FormlyTemplateOptions,
     options?: any,
@@ -21,8 +22,8 @@ export class Element {
           ...templateOptions, ...
             {
               type: type,
-              label: label ?? key,
-              placeholder: `enter ${label ?? key}`,
+              label: label ?? toStartCase(key),
+              placeholder: `enter ${label ?? toLowerCase(key)}`,
               required: required,
               hide: hide,
               disabled: disabled,
@@ -48,56 +49,13 @@ export class Element {
           {
             ...templateOptions, ...{
               type: type,
-              label: label ?? key,
-              placeholder: `${label ?? key}`,
+              label: label ?? toStartCase(key),
+              placeholder: `enter ${label ?? toLowerCase(key)}`,
               className: 'flex-1',
             }
           }
       };
   }
-
-  // //address
-  // public static Number = (): FormlyFieldConfig => {
-  //   return this.Element('buildingNumber', 'suite')
-  // }
-  // public static Street = (): FormlyFieldConfig => {
-  //   return this.Element('streetName', "street")
-  // }
-  // public static City = (): FormlyFieldConfig => {
-  //   return this.Element('cityName', 'city')
-  // }
-  // public static Province = (): FormlyFieldConfig => {
-  //   return this.Element('countrySubEntity', 'province')
-  // }
-  //
-  // public static Country = (): FormlyFieldConfig => {
-  //   return this.Element('country')
-  // }
-  //
-  // public static POSTCODE = (): FormlyFieldConfig => {
-  //   return this.Element('country')
-  // }
-
-
-  // //id
-  // public static Id = (): FormlyFieldConfig => {
-  //   return this.Element('idContent', 'id', true)
-  // }
-  //
-  // //code
-  // public static Code = (): FormlyFieldConfig => {
-  //   return this.Element('codeContent', 'id', true)
-  // }
-
-  //contact
-  // public static Email = (): FormlyFieldConfig => {
-  //   return this.Element('email', 'email', false, 'email')
-  // }
-  //
-  // public static Telephone = (): FormlyFieldConfig => {
-  //   return this.Element('telephone', 'phone number', false, 'tel')
-  // }
-
 }
 
 

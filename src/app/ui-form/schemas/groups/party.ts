@@ -14,61 +14,74 @@ export const PARTY = (key, disabled, className) => ({
     label: key,
   },
 
-      fieldGroup: [
-        Element.Element("partyName", "name", true),
-        {
-          key: 'partyIdentification',
-          type: 'repeat',
-          templateOptions:{
-            addText: 'add party id',
-            required: true,
-            label:'party id'
-          },
-          fieldArray: {
-            fieldGroup: [
-              ID(undefined, 'party id', true),
-            ]
-          },
-        },
-        {
-          key: 'endpointId',
-          type: 'repeat',
-          templateOptions:{
-            addText: 'add endpoint',
-            label: 'endpoint'
-          },
-          fieldArray: {
-            fieldGroup: [
-              CODE(undefined, 'endpoint code', true),
-            ]
-          },
-        },
-        {
-          key: 'contact',
-          type: 'repeat',
-          templateOptions:{
-            addText: 'add contact',
-            label: 'contact',
-          },
-          fieldArray: {
-            fieldGroup: [
-              CONTACT('contact', 'contact', true),
-            ]
-          },
-        },
-        {
-          key: 'partyLegalEntity',
-          type: 'repeat',
-          templateOptions:{
-            label: 'legal entity',
-            addText: 'add legal entity',
-          },
-          fieldArray: {
-            fieldGroup: [
-              LEGALENTITY()
-            ]
-          },
-        }
-      ]
+  fieldGroup: [
+    Element.Element("partyName", true, "name"),
+    {
+      key: 'partyIdentification',
+      type: 'repeat',
+      templateOptions: {
+        addText: 'add party id',
+        required: true,
+        label: 'party id'
+      },
+      fieldArray: {
+        fieldGroup: [
+          ID(undefined, 'party id'),
+        ]
+      },
+    },
+    {
+      key: 'endpointId',
+      type: 'repeat',
+      templateOptions: {
+        addText: 'add endpoint',
+        label: 'endpoint'
+      },
+      fieldArray: {
+        fieldGroup: [
+          CODE(undefined, 'endpoint code'),
+        ]
+      },
+    },
+    {
+      key: 'contact',
+      type: 'repeat',
+      templateOptions: {
+        addText: 'add contact',
+        label: 'contact',
+      },
+      fieldArray: {
+        fieldGroup: [
+          CONTACT(undefined, 'contact'),
+        ]
+      },
+    },
+    {
+      key: 'partyLegalEntity',
+      type: 'repeat',
+      templateOptions: {
+        label: 'legal entity',
+        addText: 'add legal entity',
+      },
+      fieldArray: {
+        fieldGroup: [
+          LEGALENTITY()
+        ]
+      },
+    },
+    {
+      key: 'person',
+      type: 'repeat',
+      templateOptions: {
+        addText: 'add person',
+        label: 'person'
+      },
+      fieldArray: {
+        fieldGroup: [
+          PERSON(undefined, 'person'),
+        ]
+      },
+    }
+  ]
 
 })

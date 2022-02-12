@@ -62,3 +62,17 @@ export function clone(value: any): any {
     return newVal;
   }, c);
 }
+
+export function toStartCase(value:string):string{
+  return value
+    .replace(/([A-Z])/g, ' $1')
+    .replace(/^./, (str) => {
+      return str.toUpperCase();
+    })
+}
+
+export function toLowerCase(value:string):string{
+  return value
+    .replace(/([A-Z])/g, ' $1')
+    .toLocaleLowerCase();
+}

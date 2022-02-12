@@ -18,6 +18,6 @@ export const FLEX_FORM = (disabled = false) => ({
     // ADDRESS('billing', disabled, ''),
     // UBL_ADDRESS("ubl address"),
     // CONTACT("ubl contact")
-    PARTY('party1', false, 'flex-1')
+    PARTY('buyerCustomerParty', false, 'flex-1')
   ],
 });

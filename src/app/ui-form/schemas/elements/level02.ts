@@ -26,7 +26,7 @@ export const LEVEL02 = (key, disabled, className) => ({
             // ID('Test id', 'testId', true),
           ]
         },
-        PERSON('person')
+        PERSON('person', 'person')
       ]
     },
   ]

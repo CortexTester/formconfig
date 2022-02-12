@@ -5,7 +5,7 @@ import {ADDRESS} from "./address";
 export const LEGALENTITY = () => ({
   type:'auto-hide',
   fieldGroup: [
-    Element.Element('registrationName', 'registration name', true),
+    Element.Element('registrationName',  true, 'registration name'),
     ID('companyId','registration company id', false),
     ADDRESS('registrationAddress', 'address',  false),
   ]

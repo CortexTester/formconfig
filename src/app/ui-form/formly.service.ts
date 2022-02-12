@@ -1,20 +1,21 @@
-import { Injectable } from '@angular/core';
-import { FormlyFieldConfig } from '@ngx-formly/core';
-import { Field } from './helpers/fields';
+import {Injectable} from '@angular/core';
+import {FormlyFieldConfig} from '@ngx-formly/core';
+import {Field} from './helpers/fields';
 // import { DEFAULT_FORM } from './schemas/default.form';
-import { FORMS_VALUES } from './schemas'
+import {FORMS_VALUES} from './schemas'
 import {HttpClient} from "@angular/common/http";
-import { Observable, of } from 'rxjs';
-import { FLEX_FORM } from './schemas/flex.form';
+import {Observable, of} from 'rxjs';
+import {FLEX_FORM} from './schemas/flex.form';
 import {Element} from "./schemas/elements/element";
 
 @Injectable({
-  providedIn:'root'
+  providedIn: 'root'
 })
 export class FormlyService {
 
   formUrl = 'http://localhost:4021/form';
   dataUrl = 'http://localhost:4021/data';
+
   constructor(private http: HttpClient) {
   }
 
@@ -31,33 +32,84 @@ export class FormlyService {
     return of(FLEX_FORM().template);
   }
 
-  public getLocalData() : Observable<any>{
+  public getPartyTestData() {
     return of({
-      "party1":{
-        "partyName":"party01",
-        "contact":[
+      "buyerCustomerParty": {
+        "contact": [
           {
-            "email":"al@cbx.com",
-            "telephone":"403-123-4567"
+            "email": "al@cbx.com",
+            "telephone": "403-123-4567"
           }
         ],
-        "partyIdentification":[
+        "partyIdentification": [
           {
-            "idContent":"party01",
-            "idSchemeIdentifier":"CBX"
+            "idContent": "party01",
+            "idSchemeIdentifier": "CBX"
           },
           {
-            "idContent":"987456321",
-            "idSchemeIdentifier":"DUNS"
+            "idContent": "987456321",
+            "idSchemeIdentifier": "DUNS"
           }
         ],
-        "endpointId":[
+        "partyLegalEntity": [
           {
-            "codeContent":"http://test.com",
+            "companyId": {
+              "idContent": "5512895671",
+              "idSchemeIdentifier": "Alberta Business Registry",
+              "idAgencyIdentifier": "12"
+            },
+            "registrationAddress": {
+              "buildingNumber": "123",
+              "streetName": "8 Ave SW",
+              "cityName": "Calgary",
+              "countrySubEntity": "Alberta",
+              "country": "Canada"
+            },
+            "registrationName": "Alpine Service Inc."
+          }
+        ],
+        "partyName": "party01",
+
+        "postalAddress": [
+          {
+            "buildingNumber": "123",
+            "streetName": "8 Ave SW",
+            "cityName": "Calgary",
+            "countrySubEntity": "Alberta",
+            "country": "Canada"
+          }
+        ]
+      }
+    })
+  }
+
+  public getLocalData(): Observable<any> {
+    return of({
+      "party1": {
+        "partyName": "party01",
+        "contact": [
+          {
+            "email": "al@cbx.com",
+            "telephone": "403-123-4567"
+          }
+        ],
+        "partyIdentification": [
+          {
+            "idContent": "party01",
+            "idSchemeIdentifier": "CBX"
+          },
+          {
+            "idContent": "987456321",
+            "idSchemeIdentifier": "DUNS"
+          }
+        ],
+        "endpointId": [
+          {
+            "codeContent": "http://test.com",
             "codeListIdentifier": "website",
           },
           {
-            "codeContent":"http://api/aws.com",
+            "codeContent": "http://api/aws.com",
             "codeListIdentifier": "api",
           }
         ]
@@ -65,7 +117,7 @@ export class FormlyService {
     })
   }
 
-  public getTestForm():Observable<FormlyFieldConfig[]> {
+  public getTestForm(): Observable<FormlyFieldConfig[]> {
     return of([{
       key: "cbxId",
       type: "auto-hide",
@@ -75,10 +127,10 @@ export class FormlyService {
         fieldGroupClassName: "display-flex"
       },
       fieldGroup: [
-        Element.Element('idContent', 'id', true),
-        Element.Element("idSchemeIdentifier", "id type"),
-        Element.Element("idAgencyIdentifier", "id agency")
-        ]
+        Element.Element('idContent', true, 'id',),
+        Element.Element("idSchemeIdentifier", ),
+        Element.Element("idAgencyIdentifier", )
+      ]
     }])
   }
 

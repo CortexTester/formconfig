@@ -1,6 +1,6 @@
 import {Element} from "./element";
 
-export const ID = (key = undefined, label, required = false) => ({
+export const ID = (key = undefined, label, required = true) => ({
   key: key,
   type: 'auto-hide',
   hideExpression: (model) => {
@@ -10,7 +10,7 @@ export const ID = (key = undefined, label, required = false) => ({
     required: required
   },
   fieldGroup: [
-    Element.Element('idContent', label, true),
+    Element.Element('idContent',  true, label),
     Element.ElementHideWhenEmpty("idSchemeIdentifier", "id type"),
     Element.ElementHideWhenEmpty("idAgencyIdentifier", "id agency"),
   ]

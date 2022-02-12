@@ -1,7 +1,5 @@
-import {Component, TemplateRef} from '@angular/core';
+import {Component} from '@angular/core';
 import {FieldArrayType, FormlyFieldConfig} from '@ngx-formly/core';
-import {isObservable} from "rxjs";
-import {AbstractControl} from "@angular/forms";
 import {clone} from "../helpers/utils";
 
 @Component({
@@ -11,16 +9,16 @@ import {clone} from "../helpers/utils";
       <div *ngFor="let field of field.fieldGroup; let i = index;" class="display-flex">
         <fieldset class="flex-1 border p-2 flex-1">
           <legend class="float-none w-auto p-2">{{to.label + " " + (i + 1) }}</legend>
-          <formly-field [field]="field" class=""></formly-field>
+          <formly-field [field]="field" ></formly-field>
         </fieldset>
-        <div class="justify-content-end pt-2">
+        <div class="justify-content-end mt-4 pl-2">
           <button class="btn btn-danger" type="button" (click)="remove(i)" [disabled]="field.disabled">
             <span class="glyphicon glyphicon-trash"></span>
           </button>
         </div>
       </div>
       <div>
-        <button class="btn btn-primary" type="button" (click)="add()">{{ to.addText }}</button>
+        <button class="btn btn-primary mt-2" type="button" (click)="add()">{{ to.addText }}</button>
       </div>
     </div>
   `,

@@ -14,14 +14,13 @@ import {FieldType, FormlyExtension, FormlyFieldConfig} from "@ngx-formly/core";
 <!--          <div [ngClass]="{'glyphicon glyphicon-menu-up':isEditing, 'glyphicon glyphicon-menu-down': !isEditing}"></div>-->
 <!--        </button> -->
         <a style="color: blue" (click)="onClick()">
-          <div [ngClass]="{'glyphicon glyphicon-menu-up': !!isEditing, 'glyphicon glyphicon-option-horizontal': !isEditing}"></div>
+          <div [ngClass]="isEditing ? 'glyphicon glyphicon-menu-up' : 'glyphicon glyphicon-option-horizontal'"></div>
         </a>
       </div>
     </div>
-
   `
 })
-export class FormlyHideComponent extends FieldType {
+export class FormlyHideComponent extends FieldType implements OnInit{
   isEditing = false
 
   private hideNotRequired() {
@@ -46,5 +45,9 @@ export class FormlyHideComponent extends FieldType {
     }else {
       this.hideNotRequired();
     }
+  }
+
+  ngOnInit(): void {
+    this.hideNotRequired()
   }
 }

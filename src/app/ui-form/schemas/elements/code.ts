@@ -1,8 +1,8 @@
 import {Element} from "./element";
 
-export const CODE = (key = undefined, label, required=false) => ({
-  key:key,
-  type:'auto-hide',
+export const CODE = (key = undefined, label, required = true) => ({
+  key: key,
+  type: 'auto-hide',
   hideExpression: (model) => {
     if (!required) return !model || !model[key]
   }, //to hide myself if not required, such as in partyLegalEntity case
@@ -10,7 +10,7 @@ export const CODE = (key = undefined, label, required=false) => ({
     required: required
   },
   fieldGroup: [
-    Element.Element('codeContent', label, true),
+    Element.Element('codeContent', true, label),
     Element.ElementHideWhenEmpty('codeListIdentifier', 'code type'),
     Element.ElementHideWhenEmpty('codeListAgencyIdentifier', 'code agency')
   ]

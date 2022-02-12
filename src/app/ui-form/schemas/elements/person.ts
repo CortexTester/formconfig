@@ -1,20 +1,18 @@
 import {Element} from "./element";
 
-export const PERSON = (key, label='', required = false, groupClassName = 'display-flex', className = 'flex-1') => ({
+export const PERSON = (key = undefined, label, required = true) => ({
   key: key,
-  wrappers: ['fieldset'],
-  className: className,
+  type: 'auto-hide',
+  hideExpression: (model) => {
+    if (!required) return !model || !model[key]
+  }, //to hide myself if not required, such as in partyLegalEntity case
   templateOptions: {
-    label: key,
-    fieldGroupClassName: groupClassName,
+    required: required
   },
-  fieldGroup: [{
-    type: 'auto-hide',
-    fieldGroup: [
-      Element.Element("firstName", 'first name', required),
-      Element.ElementHideWhenEmpty('familyName', 'last name'),
-      Element.ElementHideWhenEmpty('jobTitle', 'job title'),
-      Element.ElementHideWhenEmpty('middleName', 'middle name')
-    ]
-  } ]
+  fieldGroup: [
+    Element.Element("firstName", true, label),
+    Element.ElementHideWhenEmpty('familyName'),
+    Element.ElementHideWhenEmpty('jobTitle'),
+    Element.ElementHideWhenEmpty('middleName')
+  ]
 })
