@@ -5,13 +5,15 @@ import {CODE} from "../elements/code";
 import {PERSON} from "../elements/person";
 import {Element} from "../elements/element";
 import {LEGALENTITY} from "../elements/partyLegalEntity";
+import {TAXSCHEMA} from "../elements/partyTaxSchema";
+import {toStartCase} from "../../helpers/utils";
 
-export const PARTY = (key, disabled, className) => ({
+export const PARTY = (key) => ({
   key: key,
-  className: className,
   wrappers: ['panel'],
+  className: 'flex-1',
   templateOptions: {
-    label: key,
+    label: toStartCase(key),
   },
 
   fieldGroup: [
@@ -81,7 +83,19 @@ export const PARTY = (key, disabled, className) => ({
           PERSON(undefined, 'person'),
         ]
       },
+    },
+    {
+      key: 'partyTaxScheme',
+      type: 'repeat',
+      templateOptions: {
+        label: 'tax schema',
+        addText: 'add tax schema',
+      },
+      fieldArray: {
+        fieldGroup: [
+          TAXSCHEMA()
+        ]
+      },
     }
   ]
-
 })

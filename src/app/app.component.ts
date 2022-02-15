@@ -36,17 +36,19 @@ export class AppComponent implements OnInit {
     //   error => {
     //     console.log(error)
     //   })
-    this.formlyService.getPartyTestData().subscribe(data => {
-      this.model = data
-    })
+
     //   this.formlyService.getTestForm().subscribe(data => {
     //     this.fields = data
     //   },
+    // this.formlyService.gerFullPartyData().subscribe(data => {
+    //   this.model = data
+    // })
     this.formlyService.getFLEXForm().subscribe(data => {
         this.fields = data
       },
       error => {
         console.log(error)
       })
+
   }
 }

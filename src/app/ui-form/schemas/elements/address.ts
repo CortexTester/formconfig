@@ -1,6 +1,6 @@
 import {Element} from "./element";
 
-export const ADDRESS = (key = undefined, label, required = false) => ({
+export const ADDRESS = (key = undefined, label, required = true) => ({
   key: key,
   type: 'auto-hide',
   hideExpression: (model) => {
@@ -11,7 +11,7 @@ export const ADDRESS = (key = undefined, label, required = false) => ({
     required: required
   },
   fieldGroup: [
-    Element.ElementHideWhenEmpty('buildingNumber', 'suite'),
+    Element.Element('buildingNumber',  true, 'number'),
     Element.Element('streetName', true, "street"),
     Element.ElementHideWhenEmpty('cityName', 'city'),
     Element.ElementHideWhenEmpty('countrySubEntity', 'province'),

@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="submit()">
+<form [formGroup]="form" (ngSubmit)="submit()" >
   <formly-form [model]="model" [fields]="fields" [form]="form" (modelChange)="modelChange($event)"></formly-form>
   <button class="btn btn-success" type="submit" [disabled]="!form.valid">submit</button>
   <textarea class="form-control" rows="20">{{ model | json }}</textarea>

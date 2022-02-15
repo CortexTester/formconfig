@@ -1,23 +1,23 @@
-import {Field} from '../helpers/fields';
-import {
-  NAME,
-  EMAIL,
-  COUNTRIES,
-  MESSAGE,
-  MONEY_INPUT,
-  PERCENTAGE_INPUT,
-} from './form-elements';
-// import {ADDRESS, UBL_ADDRESS} from './form-groups/address';
-import {LEVEL02} from "./elements/level02";
 import {PARTY} from "./groups/party";
-// import {CONTACT} from "./elements/contact";
+import {ORDER} from "./doc/order";
 
-export const FLEX_FORM = (disabled = false) => ({
-  id: 'FLEX',
-  template: [
-    // ADDRESS('billing', disabled, ''),
-    // UBL_ADDRESS("ubl address"),
-    // CONTACT("ubl contact")
-    PARTY('buyerCustomerParty', false, 'flex-1')
-  ],
-});
+export const FLEX_FORM = ()=>{return getOrder()}
+
+function getOrder(){
+  return {
+    id: 'FLEX',
+    template: [
+      ORDER('PO')
+    ],
+  }
+}
+
+function getParty() {
+  return {
+    id: 'FLEX',
+    template: [
+      PARTY('buyerCustomerParty')
+    ],
+  }
+};
+

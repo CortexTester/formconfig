@@ -6,7 +6,7 @@ import {
 } from './helpers/validations-messages';
 import {maximumMoneyValidation} from './helpers/validators';
 
-import {RepeatSectionComponent} from './types/repeat-section.component';
+// import {RepeatSectionComponent} from './types/repeat-section.component';
 import {FormlyFieldInputMoney} from './types/money.component';
 // import { FormlyFieldInputPercentage } from './types/percentage.component';
 // import { ErrorWrapperComponent } from './wrappers/error.component';
@@ -18,6 +18,9 @@ import {FieldsetWrapperComponent} from './wrappers/fieldset-wrapper.componet';
 import {HorizontalWrapper} from "./wrappers/horizontal-wrapper.component";
 import {FormlyHideComponent} from "./types/autoHide.compoent";
 import {RepeatTypeComponent} from "./types/repeat.component";
+import {FormlyFieldTabComponent} from "./types/tab";
+import {FormlyFieldTabsetComponent} from "./types/tabset";
+import {FormlyWrapperTabComponent} from "./wrappers/tab";
 
 export const config: ConfigOption = {
   validationMessages: [
@@ -32,14 +35,17 @@ export const config: ConfigOption = {
     {name: 'panel', component: PanelWrapperComponent},
     {name: 'fieldset', component: FieldsetWrapperComponent},
     {name: 'error-on-top', component: ErrorWrapperComponent},
-    {name: 'field-horizontal', component: HorizontalWrapper}
+    {name: 'field-horizontal', component: HorizontalWrapper},
+    { name: 'tab', component: FormlyWrapperTabComponent }
   ],
   types: [
-    {name: 'repeat02', component: RepeatSectionComponent},
+    // {name: 'repeat02', component: RepeatSectionComponent},
     {name: 'money', component: FormlyFieldInputMoney},
     {name: 'percentage', component: FormlyFieldInputPercentage.name},
     {name: 'auto-hide', component: FormlyHideComponent},
-    {name: 'repeat', component: RepeatTypeComponent}
+    {name: 'repeat', component: RepeatTypeComponent},
+    { name: 'tab', component: FormlyFieldTabComponent },
+    { name: 'tabset', component: FormlyFieldTabsetComponent }
   ],
   validators: [
     {name: 'maximumMoneyValidation', validation: maximumMoneyValidation}
