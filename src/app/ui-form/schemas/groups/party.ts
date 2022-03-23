@@ -24,7 +24,7 @@ export const PARTY = (key) => ({
       templateOptions: {
         addText: 'add party id',
         required: true,
-        label: 'party id'
+        label: 'party id',
       },
       fieldArray: {
         fieldGroup: [
@@ -37,7 +37,7 @@ export const PARTY = (key) => ({
       type: 'repeat',
       templateOptions: {
         addText: 'add endpoint',
-        label: 'endpoint'
+        label: 'endpoint',
       },
       fieldArray: {
         fieldGroup: [
@@ -76,7 +76,7 @@ export const PARTY = (key) => ({
       type: 'repeat',
       templateOptions: {
         addText: 'add person',
-        label: 'person'
+        label: 'person',
       },
       fieldArray: {
         fieldGroup: [

@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {FieldArrayType, FormlyFieldConfig} from '@ngx-formly/core';
 import {clone} from "../helpers/utils";
 
@@ -17,7 +17,7 @@ import {clone} from "../helpers/utils";
           </button>
         </div>
       </div>
-      <div>
+      <div *ngIf="to.showAddButton">
         <button class="btn btn-primary mt-2" type="button" (click)="add()">{{ to.addText }}</button>
       </div>
     </div>
@@ -34,7 +34,18 @@ export class RepeatTypeComponent extends FieldArrayType {
       };
       field.fieldGroup.push(f);
     }
+    // if(!this.to.showAddButton){
+    //   this.showAddButton = true
+    // }
   }
+
+  get showAddButton(): boolean {
+    return this.to.showAddButton;
+  }
+  //
+  // set showAddButton(value: boolean) {
+  //   this.to.showAddButton = !!value;
+  // }
 }
 
 

@@ -21,6 +21,7 @@
     "@ngx-formly/bootstrap": "^5.10.29",
     "@ngx-formly/core": "^5.10.29",
     "angular2-text-mask": "^9.0.0",
+    "ngx-bootstrap": "^8.0.0",
     "rxjs": "~7.4.0",
     "text-mask-addons": "^3.8.0",
     "tslib": "^2.3.0",

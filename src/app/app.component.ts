@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup} from "@angular/forms";
 import {FormlyFieldConfig} from "@ngx-formly/core";
-import {FormlyService} from "./ui-form/formly.service";
+import {FormlyService} from "./test/formly.service";
 
 @Component({
   selector: 'app-root',
@@ -43,7 +43,10 @@ export class AppComponent implements OnInit {
     // this.formlyService.gerFullPartyData().subscribe(data => {
     //   this.model = data
     // })
-    this.formlyService.getFLEXForm().subscribe(data => {
+    // this.formlyService.getOrderData().subscribe(data => {
+    //   this.model = data
+    // })
+    this.formlyService.getTestForm().subscribe(data => {
         this.fields = data
       },
       error => {

@@ -20,6 +20,13 @@ import {FormlyFieldTabComponent} from "./types/tab";
 import {FormlyFieldTabsetComponent} from "./types/tabset";
 import {FormlyWrapperTabComponent} from "./wrappers/tab";
 import {VisiblePipe} from "./components/tabset/visible.pipe";
+import {BsDatepickerModule} from "ngx-bootstrap/datepicker";
+import {DatepickerTypeComponent} from "./types/datepicker.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {TimePickerTypeComponent} from "./types/timepicker.component";
+import {TimepickerModule} from "ngx-bootstrap/timepicker";
+import { NameInFrontWrapperComponent } from './wrappers/name-infront-wrapper.componet';
+import { RepeatWrapperComponent } from './wrappers/repeat-wrapper.components';
 
 @NgModule({
   declarations: [
@@ -37,13 +44,20 @@ import {VisiblePipe} from "./components/tabset/visible.pipe";
     FormlyFieldTabsetComponent,
     FormlyWrapperTabComponent,
     VisiblePipe,
+    DatepickerTypeComponent,
+    TimePickerTypeComponent,
+    NameInFrontWrapperComponent,
+    RepeatWrapperComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormlyModule.forRoot(config),
     FormlyBootstrapModule,
-    TextMaskModule
+    TextMaskModule,
+    BsDatepickerModule.forRoot(),
+    TimepickerModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   exports: [
     FormsModule,

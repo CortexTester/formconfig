@@ -65,11 +65,7 @@ export const ORDER = (key) => ({
           }
         }
       ],
-      // templateOptions: {
-      //   activeTabChange: (tabTitle: string) => {
-      //     this.options.formState.activeTab = tabTitle;
-      //   }
-      // }
+
     }
 
   ]
